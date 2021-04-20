@@ -27,7 +27,7 @@ namespace TestsEditor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormNewTest form = new FormNewTest(this);
+            FormEdit form = new FormEdit(this);
             form.Show();
             Visible = false;
         }

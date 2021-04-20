@@ -162,11 +162,11 @@ namespace TestsEditor
             // 
             // buttonAddQust
             // 
-            this.buttonAddQust.Location = new System.Drawing.Point(213, 326);
+            this.buttonAddQust.Location = new System.Drawing.Point(207, 326);
             this.buttonAddQust.Name = "buttonAddQust";
             this.buttonAddQust.Size = new System.Drawing.Size(130, 23);
             this.buttonAddQust.TabIndex = 15;
-            this.buttonAddQust.Text = "Add qustion";
+            this.buttonAddQust.Text = "Add  qustion";
             this.buttonAddQust.UseVisualStyleBackColor = true;
             this.buttonAddQust.Click += new System.EventHandler(this.buttonAddQust_Click);
             // 

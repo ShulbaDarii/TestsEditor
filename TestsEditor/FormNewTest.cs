@@ -20,6 +20,7 @@ namespace TestsEditor
         Form form;
         List<Question> questions;
         List<Answer> answers;
+        int right = 0;
         public FormNewTest(Form form)
         {
             InitializeComponent();
@@ -30,20 +31,22 @@ namespace TestsEditor
 
         private void buttonSaveTest_Click(object sender, EventArgs e)
         {
-            Test test = new Test();
-            test.Author = textBoxAutor.Text;
-            test.Qty_questions =textBoxQty.Text;
-            test.TestName = textBoxTitle.Text;
-            test.Question = questions;
-            XmlSerializer formatter = new XmlSerializer(typeof(Test));
 
-            using (FileStream fs = new FileStream("persons.xml", FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, test);
+                Test test = new Test();
+                test.Author = textBoxAutor.Text;
+                test.Qty_questions = textBoxQty.Text;
+                test.TestName = textBoxTitle.Text;
+                test.Question = questions;
+            
+                XmlSerializer formatter = new XmlSerializer(typeof(Test));
 
-            }
-            form.Visible = true;
-            Close();
+                using (FileStream fs = new FileStream($"test\\{textBoxFileTest.Text}.xml", FileMode.OpenOrCreate))
+                {
+                    formatter.Serialize(fs, test);
+
+                }
+                form.Visible = true;
+                Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,7 +57,7 @@ namespace TestsEditor
 
         private void FormNewTest_FormClosed(object sender, FormClosedEventArgs e)
         {
-            form.Close();
+            form.Visible = true;
         }
 
         private void buttonAddAns_Click(object sender, EventArgs e)
@@ -62,15 +65,30 @@ namespace TestsEditor
             Answer answer = new Answer() { Description = textBoxAnswer.Text, IsRight = checkBox1.Checked.ToString() };
             answers.Add(answer);
             listBoxAnswer.Items.Add(answer);
+            if (checkBox1.Checked)
+            {
+                right++;
+            }
         }
 
         private void buttonAddQust_Click(object sender, EventArgs e)
         {
-            Question question = new Question() { Answer = answers, Description = textBoxQustin.Text, Difficulty = numericUpDown1.Value.ToString() };
-            questions.Add(question);
-            listBoxQustion.Items.Add(question);
-            textBoxQty.Text = listBoxQustion.Items.Count.ToString();
-            ClearQust();
+            if (right == 1)
+            {
+                List<Answer> answers2 = new List<Answer>();
+                foreach (Answer answer in answers) {
+                    answers2.Add(answer);
+                        }
+                Question question = new Question() { Answer =answers2, Description = textBoxQustin.Text, Difficulty = numericUpDown1.Value.ToString() };
+                questions.Add(question);
+                listBoxQustion.Items.Add(question);
+                textBoxQty.Text = listBoxQustion.Items.Count.ToString();
+                ClearQust();
+            }
+            else
+            {
+                MessageBox.Show("must be 1 rigth qustion");
+            }
         }
 
         private void listBoxAnswer_DoubleClick(object sender, EventArgs e)
@@ -80,11 +98,13 @@ namespace TestsEditor
             {
                 listBoxAnswer.Items[i] = new Answer() { Description = (listBoxAnswer.SelectedItem as Answer).Description, IsRight = "False" };
                 answers[i] = new Answer() { Description = (listBoxAnswer.SelectedItem as Answer).Description, IsRight = "False" };
+                right--;
             }
             else
             {
                 listBoxAnswer.Items[i] = new Answer() { Description = (listBoxAnswer.SelectedItem as Answer).Description, IsRight = "True" };
                 answers[i] = new Answer() { Description = (listBoxAnswer.SelectedItem as Answer).Description, IsRight = "True" };
+                right++;
             }
         }
         private void ClearQust()
@@ -95,6 +115,7 @@ namespace TestsEditor
             answers.Clear();
             numericUpDown1.Value = 1;
             checkBox1.Checked = false;
+            right = 0;
         }
         private void buttonClearQust_Click(object sender, EventArgs e)
         {

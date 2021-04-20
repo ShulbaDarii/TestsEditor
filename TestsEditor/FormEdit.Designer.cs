@@ -51,6 +51,11 @@ namespace TestsEditor
             this.textBoxAutor = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -58,6 +63,10 @@ namespace TestsEditor
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.checkBox2);
+            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.buttonClearQust);
             this.groupBox2.Controls.Add(this.buttonAddQust);
             this.groupBox2.Controls.Add(this.buttonAddAns);
@@ -78,7 +87,7 @@ namespace TestsEditor
             // 
             // buttonClearQust
             // 
-            this.buttonClearQust.Location = new System.Drawing.Point(71, 326);
+            this.buttonClearQust.Location = new System.Drawing.Point(13, 339);
             this.buttonClearQust.Name = "buttonClearQust";
             this.buttonClearQust.Size = new System.Drawing.Size(130, 23);
             this.buttonClearQust.TabIndex = 16;
@@ -87,17 +96,17 @@ namespace TestsEditor
             // 
             // buttonAddQust
             // 
-            this.buttonAddQust.Location = new System.Drawing.Point(213, 326);
+            this.buttonAddQust.Location = new System.Drawing.Point(285, 339);
             this.buttonAddQust.Name = "buttonAddQust";
             this.buttonAddQust.Size = new System.Drawing.Size(130, 23);
             this.buttonAddQust.TabIndex = 15;
-            this.buttonAddQust.Text = "Add qustion";
+            this.buttonAddQust.Text = "Add new  qustion";
             this.buttonAddQust.UseVisualStyleBackColor = true;
             this.buttonAddQust.Click += new System.EventHandler(this.buttonAddQust_Click);
             // 
             // buttonAddAns
             // 
-            this.buttonAddAns.Location = new System.Drawing.Point(349, 290);
+            this.buttonAddAns.Location = new System.Drawing.Point(349, 313);
             this.buttonAddAns.Name = "buttonAddAns";
             this.buttonAddAns.Size = new System.Drawing.Size(66, 20);
             this.buttonAddAns.TabIndex = 14;
@@ -108,7 +117,7 @@ namespace TestsEditor
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(10, 293);
+            this.checkBox1.Location = new System.Drawing.Point(10, 316);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(55, 17);
             this.checkBox1.TabIndex = 13;
@@ -117,7 +126,7 @@ namespace TestsEditor
             // 
             // textBoxAnswer
             // 
-            this.textBoxAnswer.Location = new System.Drawing.Point(71, 290);
+            this.textBoxAnswer.Location = new System.Drawing.Point(71, 313);
             this.textBoxAnswer.Name = "textBoxAnswer";
             this.textBoxAnswer.Size = new System.Drawing.Size(272, 20);
             this.textBoxAnswer.TabIndex = 12;
@@ -138,6 +147,7 @@ namespace TestsEditor
             this.listBoxAnswer.Name = "listBoxAnswer";
             this.listBoxAnswer.Size = new System.Drawing.Size(406, 121);
             this.listBoxAnswer.TabIndex = 10;
+            this.listBoxAnswer.SelectedIndexChanged += new System.EventHandler(this.listBoxAnswer_SelectedIndexChanged);
             // 
             // numericUpDown1
             // 
@@ -179,6 +189,7 @@ namespace TestsEditor
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.listBoxQustion);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -198,8 +209,9 @@ namespace TestsEditor
             this.listBoxQustion.FormattingEnabled = true;
             this.listBoxQustion.Location = new System.Drawing.Point(7, 117);
             this.listBoxQustion.Name = "listBoxQustion";
-            this.listBoxQustion.Size = new System.Drawing.Size(199, 212);
+            this.listBoxQustion.Size = new System.Drawing.Size(199, 186);
             this.listBoxQustion.TabIndex = 17;
+            this.listBoxQustion.SelectedIndexChanged += new System.EventHandler(this.listBoxQustion_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -258,6 +270,7 @@ namespace TestsEditor
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(164, 21);
             this.comboBox1.TabIndex = 21;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -268,6 +281,53 @@ namespace TestsEditor
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(107, 306);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(99, 23);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "delete";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(349, 290);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(66, 20);
+            this.button4.TabIndex = 19;
+            this.button4.Text = "Change";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(10, 293);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(55, 17);
+            this.checkBox2.TabIndex = 18;
+            this.checkBox2.Text = "isTrue";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(71, 290);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(272, 20);
+            this.textBox1.TabIndex = 17;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(149, 339);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(130, 23);
+            this.button5.TabIndex = 20;
+            this.button5.Text = "Save qustion";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // FormEdit
             // 
@@ -280,6 +340,7 @@ namespace TestsEditor
             this.Controls.Add(this.groupBox1);
             this.Name = "FormEdit";
             this.Text = "FormEdit";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormEdit_FormClosed);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -312,5 +373,10 @@ namespace TestsEditor
         private System.Windows.Forms.TextBox textBoxAutor;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button5;
     }
 }
