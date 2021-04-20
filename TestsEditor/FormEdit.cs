@@ -12,9 +12,27 @@ namespace TestsEditor
 {
     public partial class FormEdit : Form
     {
-        public FormEdit()
+        Form form;
+        public FormEdit(Form form)
         {
             InitializeComponent();
+            this.form = form;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            form.Visible = true;
+            Close();
+        }
+
+        private void buttonAddAns_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAddQust_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

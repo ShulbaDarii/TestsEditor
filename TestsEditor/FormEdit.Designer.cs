@@ -93,6 +93,7 @@ namespace TestsEditor
             this.buttonAddQust.TabIndex = 15;
             this.buttonAddQust.Text = "Add qustion";
             this.buttonAddQust.UseVisualStyleBackColor = true;
+            this.buttonAddQust.Click += new System.EventHandler(this.buttonAddQust_Click);
             // 
             // buttonAddAns
             // 
@@ -102,6 +103,7 @@ namespace TestsEditor
             this.buttonAddAns.TabIndex = 14;
             this.buttonAddAns.Text = "Add";
             this.buttonAddAns.UseVisualStyleBackColor = true;
+            this.buttonAddAns.Click += new System.EventHandler(this.buttonAddAns_Click);
             // 
             // checkBox1
             // 
@@ -228,10 +230,12 @@ namespace TestsEditor
             // 
             // textBoxQty
             // 
+            this.textBoxQty.Enabled = false;
             this.textBoxQty.Location = new System.Drawing.Point(170, 85);
             this.textBoxQty.Name = "textBoxQty";
             this.textBoxQty.Size = new System.Drawing.Size(35, 20);
             this.textBoxQty.TabIndex = 2;
+            this.textBoxQty.Text = "0";
             // 
             // textBoxTitle
             // 
@@ -263,6 +267,7 @@ namespace TestsEditor
             this.button1.TabIndex = 22;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormEdit
             // 

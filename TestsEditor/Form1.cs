@@ -12,7 +12,7 @@ namespace TestsEditor
 {
     public partial class Form1 : Form
     {
-        bool visibal = true;
+        int i = 0;
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +20,14 @@ namespace TestsEditor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormNewTest form = new FormNewTest(Visible);
+            FormNewTest form = new FormNewTest(this);
+            form.Show();
+            Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormNewTest form = new FormNewTest(this);
             form.Show();
             Visible = false;
         }
