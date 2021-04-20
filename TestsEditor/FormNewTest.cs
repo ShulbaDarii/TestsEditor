@@ -10,19 +10,24 @@ using System.Windows.Forms;
 
 namespace TestsEditor
 {
-    public partial class Form1 : Form
+    public partial class FormNewTest : Form
     {
-        bool visibal = true;
-        public Form1()
+        bool visibal;
+        public FormNewTest(bool visibal)
         {
             InitializeComponent();
+            this.visibal = visibal;
+        }
+
+        private void buttonSaveTest_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormNewTest form = new FormNewTest(Visible);
-            form.Show();
-            Visible = false;
+            visibal = true;
+            Close();
         }
     }
 }
